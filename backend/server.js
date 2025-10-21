@@ -70,6 +70,11 @@ app.use('/api/ai', aiRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/farms', farmRoutes)
 
+app.get("/", (req, res) => {
+  res.send("✅ Backend is working fine!");
+});
+
+
 // ===== SOCKET.IO =====
 io.on('connection', (socket) => {
   console.log('🔌 User connected:', socket.id);
