@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 const AIPredictionSchema = new mongoose.Schema({
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    type: String,
+    required: true,
+    default: 'default-user'
   },
   fieldId: {
     type: String,
@@ -12,7 +12,14 @@ const AIPredictionSchema = new mongoose.Schema({
   },
   predictionType: {
     type: String,
-    enum: ['irrigation_recommendation', 'quick_analysis', 'sensor_analysis'],
+    enum: [
+      'irrigation_recommendation', 
+      'quick_analysis', 
+      'sensor_analysis', 
+      'irrigation_execution',
+      'irrigation_start',  // ADD THIS
+      'irrigation_stop'    // ADD THIS
+    ],
     required: true
   },
   recommendation: {

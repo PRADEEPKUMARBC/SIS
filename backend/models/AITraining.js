@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 const AITrainingSchema = new mongoose.Schema({
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    type: String,  // CHANGED: ObjectId → String
+    required: true,
+    default: 'default-user'
   },
   epochs: {
     type: Number,
@@ -25,6 +25,11 @@ const AITrainingSchema = new mongoose.Schema({
   modelVersion: {
     type: String,
     required: true
+  },
+  status: {
+    type: String,
+    enum: ['completed', 'failed', 'in_progress'],
+    default: 'completed'
   },
   timestamp: {
     type: Date,
