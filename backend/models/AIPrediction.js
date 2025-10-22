@@ -69,6 +69,6 @@ const AIPredictionSchema = new mongoose.Schema({
   }
 }, {
   timestamps: true
-});
+}); 
 
 export default mongoose.model('AIPrediction', AIPredictionSchema);
